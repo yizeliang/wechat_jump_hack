@@ -14,8 +14,9 @@ public class Hack {
 
     /**
      * 弹跳系数，现在已经会自动适应各种屏幕，请不要修改。
+     * //1.390f
      */
-    static final double JUMP_RATIO = 1.390f;
+    static final double JUMP_RATIO = 1.350f;
 
     private static Random RANDOM = new Random();
 
@@ -93,7 +94,7 @@ public class Hack {
             }
             try {
                 // sleep 随机时间，防止上传不了成绩
-                Thread.sleep(2_500 + RANDOM.nextInt(1_000));
+                Thread.sleep(3_500 + RANDOM.nextInt(1_000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
