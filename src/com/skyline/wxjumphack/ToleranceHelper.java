@@ -5,6 +5,17 @@ package com.skyline.wxjumphack;
  */
 public class ToleranceHelper {
 
+    /**
+     * 查找像素,以颜色作为判断方式
+     * @param r
+     * @param g
+     * @param b
+     * @param rt
+     * @param gt
+     * @param bt
+     * @param t 容错率
+     * @return
+     */
     public static boolean match(int r, int g, int b, int rt, int gt, int bt, int t) {
         return r > rt - t &&
                 r < rt+ t &&

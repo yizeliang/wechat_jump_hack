@@ -10,6 +10,7 @@ import java.io.IOException;
  */
 public class MyPosFinder {
 
+    //人物代表的 RGB
     public static final int R_TARGET = 40;
 
     public static final int G_TARGET = 43;
@@ -28,6 +29,7 @@ public class MyPosFinder {
         int minX = Integer.MAX_VALUE;
         int maxY = Integer.MIN_VALUE;
         int minY = Integer.MAX_VALUE;
+        //循环查找人物像素范围
         for (int i = 0; i < width; i++) {
             for (int j = height / 4; j < height * 3 / 4; j++) {
                 int pixel = image.getRGB(i, j);
@@ -42,8 +44,8 @@ public class MyPosFinder {
                 }
             }
         }
-        ret[0] = (maxX + minX) / 2 +3;
-        ret[1] = maxY;
+        ret[0] = (maxX + minX) / 2 +3;//3是误差 造成的?还是故意设置用来防止被封的
+        ret[1] = maxY;//最低点为中心点,感觉也不是精确值
         System.out.println(maxX + ", " + minX);
         System.out.println("pos, x: " + ret[0] + ", y: " + ret[1]);
         return ret;

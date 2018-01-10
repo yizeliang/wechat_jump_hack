@@ -10,7 +10,7 @@ import java.util.Random;
 public class Hack {
 
 
-    static final String ADB_PATH = "/Users/chenliang/Library/Android/sdk/platform-tools/adb";
+    static final String ADB_PATH = "F:\\Program Files\\Android\\sdk\\platform-tools\\adb";
 
     /**
      * 弹跳系数，现在已经会自动适应各种屏幕，请不要修改。
@@ -48,6 +48,7 @@ public class Hack {
                 if (jumpRatio == 0) {
                     jumpRatio = JUMP_RATIO * 1080 / image.getWidth();
                 }
+                //查找当前坐标
                 int[] myPos = myPosFinder.find(image);
                 if (myPos != null) {
                     System.out.println("find myPos, succ, (" + myPos[0] + ", " + myPos[1] + ")");
@@ -57,6 +58,7 @@ public class Hack {
                         break;
                     } else {
                         int centerX, centerY;
+                        //能辨别出 中心白点的时候
                         int[] whitePoint = whitePointFinder.find(image, nextCenter[0] - 120, nextCenter[1], nextCenter[0] + 120, nextCenter[1] + 180);
                         if (whitePoint != null) {
                             centerX = whitePoint[0];
@@ -91,7 +93,7 @@ public class Hack {
             }
             try {
                 // sleep 随机时间，防止上传不了成绩
-                Thread.sleep(4_000 + RANDOM.nextInt(3000));
+                Thread.sleep(2_500 + RANDOM.nextInt(1_000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
